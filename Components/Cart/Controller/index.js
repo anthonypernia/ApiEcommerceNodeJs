@@ -70,6 +70,16 @@ class CartController {
         }
     }
 
+    async buyCart(req, res, next ){
+        let idBuy = await cartService.buyCart(req.body.cart_info);
+        if (idBuy) {
+            res.status(200).json({idBuy});
+            return;
+        }
+        res.status(400).json({error: "Error in buy"});
+        
+    }
+
 }
 
 module.exports = new CartController();

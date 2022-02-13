@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "public"));
 app.use(express.static(path.join(__dirname, "public")));
 
-if (cluster_mode) {
+if (cluster_mode == "true") {
   if (cluster.isMaster) {
     loggerInfo.info(`Master ${process.pid} is running`);
     // Fork workers.

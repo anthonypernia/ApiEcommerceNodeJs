@@ -26,4 +26,8 @@ module.exports = ( app ) => {
         cartController.removeProductFromCart( req, res, next );
     });
 
+    router.post( '/buy', ( req, res, next) => {
+        cartController.buyCart( req, res, next );
+    });
+
 };

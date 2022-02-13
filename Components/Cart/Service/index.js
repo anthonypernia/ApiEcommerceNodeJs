@@ -1,6 +1,6 @@
 
 const MongoDB = require('../../../config/db/MongoDB')
-
+let { sendMessage } = require('../../../utils/messaging')
 class CartService {
 
     database =  MongoDB;
@@ -49,7 +49,15 @@ class CartService {
     async removeProductFromCart(id, productId) {
         return await this.removeProductFromCartDB(id, productId);
     }
-    
+    async buyCart(cartInfo){
+        let idBuy = sendMessage(cartInfo);
+        if(idBuy){
+            //await this.deleteCartFromDB(cartInfo.id);
+            return idBuy;
+        }
+        return false;
+        
+    }
 }
 
 module.exports = new CartService();

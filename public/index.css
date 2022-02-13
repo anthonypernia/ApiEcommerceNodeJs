@@ -58,7 +58,7 @@
     color: #fff;
 }
 
-.btn_input, .btn_register, .btn_login,  #btn_msg , .btn_logout , .btn_cart, .btn_comeback_to_home{
+.btn_input, .btn_register, .btn_login,  #btn_msg , .btn_logout , .btn_cart, .btn_comeback_to_home, .btn_buy{
     width: 30%;
     height: 30%;
     display: flex;

@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const PRIVATE_KEY = 'my_secret_key';
 const bcrypt = require("bcrypt");
 const {loggerErr} = require("../../../utils/logger");
+let {sendMessage, sendEmail} = require('../../../utils/messaging');
 let default_session_expire = 10;
 
 
@@ -20,6 +21,8 @@ class UserService {
         data.password = await bcrypt.hash(data.password, 10);
         let result = await this.database.insertAndValidateDuplicate('users', data, 'email');
         if (result) {
+            sendMessage(`The user ${data.username} with email ${data.email} has been created`);
+            sendEmail(`The user ${data.username} with email ${data.email} has been created`);
             return result.insertedId;
         }
         return null;
