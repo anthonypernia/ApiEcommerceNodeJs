@@ -66,7 +66,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 6000000 * 60, // 60 min
+      maxAge: 20 * 60 * 1000, // 20 minutes
       httpOnly: true,
       secure: false,
     },
